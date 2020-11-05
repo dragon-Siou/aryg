@@ -6,6 +6,7 @@
         
         public $tid;
         public $tName;
+        public $tcid;
         public $stage;
         public $startTime;
         public $endTime;
@@ -16,6 +17,7 @@
         {
             $this->tid=null;
             $this->tName="";
+            $this->tcid=null;
             $this->stage=null;
             $this->startTime=null;
             $this->endTime=null;
@@ -55,12 +57,12 @@
         public function insert(){
             $mysqli=(new DBConnetor())->getMysqli();
 
-            $sql="INSERT INTO teams(tName)
-            VALUES(?)";
+            $sql="INSERT INTO teams(tName, tcid)
+            VALUES(?,?)";
 
             $stmt = $mysqli->prepare($sql);
-            $stmt->bind_param("s", 
-                $this->tName);
+            $stmt->bind_param("ss", 
+                $this->tName, $this->tcid);
             $stmt->execute();
 
             if($stmt->affected_rows===1){
