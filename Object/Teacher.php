@@ -87,7 +87,7 @@
     }
     else{
         echo($test->getErr());
-    }*/
+    }
 
     $test=new Teacher();
     $test->tcid="xxx";
@@ -99,6 +99,6 @@
     else{
         echo($test->getErr());
     }
-
+*/
 
 ?>
